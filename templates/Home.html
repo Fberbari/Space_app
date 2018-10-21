@@ -50,21 +50,47 @@
 					<!-- "current latlng" field -->
 					<b class="current_values">Your current position is {{abs_lat}}&#176; {{dir_lat}} and {{abs_lng}}&#176; {{dir_lng}}</b>
 
-
+					<!-- submit button -->
 					<div>
 						<button class="btn btn-danger btn-lg" role="button" id="submit_button">Execute</button>
 					</div>
 
 
-			</form>
-
-			<div class="slidecontainer"> <input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
+				</form>
 
 
 
 
 
-			<img src="{{url_for('static', filename='img/sample.jpg')}}">
+			<!-- slider -->
+			<div class="slidecontainer"><input type="range" min="0" max="3" value="0" class="slider" id="myRange"> </div>
+
+			<!-- "array" of images -->
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img0.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img1.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img2.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img3.jpg')}}">
+
+	
+			<!-- reaponsible for eliminating and putting back pictures at the correct motions of the slider -->		
+			<script>
+
+			var slider = document.getElementById("myRange");
+
+			slider.oninput = function(){
+			  var i;
+			  var x = document.getElementsByClassName("mySlides");
+			  for (i = 0; i < x.length; i++) {
+			     x[i].style.display = "none";  
+			  }
+			  x[this.value].style.display = "block";  
+			}
+
+			</script>
+
+
+
+
 
 
 		     <!-- Bootstrap core JavaScript -->

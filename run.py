@@ -25,6 +25,14 @@ def Calculate():
 
 	# produce the geojson data
 	geojson = location.calc_geojson(user_location)
+
+
+	with open('static/data/data_out/polygon.geojson', 'w') as jsonfile:
+
+		json.dump(geojson, jsonfile)
+
+		jsonfile.close()
+
 	# produce the latlng array
 	latlng_arr = location.calc_latlng(user_location)
 
