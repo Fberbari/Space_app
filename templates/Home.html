@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!-- Bootstrap core CSS -->
+	    <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+	    <!-- Plugin CSS -->
+	    <link href="{{url_for('static', filename='vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
+	    <link href="{{url_for('static', filename='vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css')}}" rel="stylesheet">
+
+	    <!-- Triumf Icon for tab image -->
+		<link rel = "icon" href = "{{url_for('static', filename='img/TRIUMFLogo.png')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css') }}">
+
+		<!-- Plotly + jQuery source code -->
+		<script type="text/javascript" src="{{ url_for('static',filename='vendor/plotly/plotly.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static',filename='vendor/jquery/jquery.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static',filename='static/js/bootstrap-slider.js') }}"></script>
+
+		<!-- javascript that collects RF data from local file -->
+
+		
+
+		<title>MAANS</title>
+
+
+
+
+		<h1 id="title">MAANS</h1>
+
+
+		</head>
+
+
+		<body>
+
+			<div class="container">
+
+				<form id="Home" action="/calculated" method="Post">
+
+					<!-- user entry field -->
+					<div id="target_address" class="fields">
+						<label> Address:</label>
+						<input type="text" id="location" name= "location">
+					</div>
+
+
+					<!-- "current latlng" field -->
+					<b class="current_values">Your current position is {{abs_lat}}&#176; {{dir_lat}} and {{abs_lng}}&#176; {{dir_lng}}</b>
+
+
+					<div>
+						<button class="btn btn-danger btn-lg" role="button" id="submit_button">Execute</button>
+					</div>
+
+
+			</form>
+
+			<div class="slidecontainer"> <input type="range" min="1" max="100" value="50" class="slider" id="myRange"></div>
+
+
+
+
+
+			<img src="{{url_for('static', filename='img/sample.jpg')}}">
+
+
+		     <!-- Bootstrap core JavaScript -->
+		    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+		    <script src="{{url_for('static', filename='vendor/popper/popper.min.js')}}"></script>
+		    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+
+		    <!-- Plugin JavaScript -->
+		    <script src="{{url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+		    <script src="{{url_for('static', filename='vendor/datatables/jquery.dataTables.js')}}"></script>
+		    <script src="{{url_for('static', filename='vendor/datatables/dataTables.bootstrap4.js')}}"></script>
+		    <script src="{{url_for('static', filename='vendor/bootstrap-toggle-master/js/bootstrap-toggle.min.js')}}"></script>
+
+	            
+
+	</body>
+
+</html>
+
