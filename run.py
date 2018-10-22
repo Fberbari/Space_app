@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session
 import json
 from common.location import location
 
-
+'''This app allows the user to input any location in toronto and it will return satellite pictures of the past few years of that location, along with stats that relate to the evolution of the location'''
 
 app = Flask(__name__)
 app.secret_key = "secret"
@@ -15,6 +15,11 @@ def Home():
 
 
 	return render_template("Home.html", abs_lat="????", abs_lng="????")
+
+
+
+
+
 
 
 @app.route("/calculated", methods=["POST","GET"])
@@ -36,7 +41,6 @@ def Calculate():
 	# produce the latlng array
 	latlng_arr = location.calc_latlng(user_location)
 
-	
 	# extracting lat and long and processing the data into a good sentence
 	abs_lat = latlng_arr["lat"]
 	abs_lng = latlng_arr["lng"]
@@ -57,6 +61,7 @@ def Calculate():
 		abs_lng = abs_lng * (-1)
 
 
+
 	return render_template("Home.html", abs_lat= abs_lat, dir_lat=dir_lat, abs_lng = abs_lng, dir_lng=dir_lng)
 
 
@@ -65,3 +70,18 @@ def Calculate():
 if __name__ == "__main__":
 
 	app.run(port=5000, debug=True)
+
+
+
+
+
+
+#
+#
+#
+#
+#
+#
+#
+#
+#

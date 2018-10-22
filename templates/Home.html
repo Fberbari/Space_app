@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head> 
+	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
 		<!-- Bootstrap core CSS -->
@@ -10,8 +10,8 @@
 	    <link href="{{url_for('static', filename='vendor/datatables/dataTables.bootstrap4.css')}}" rel="stylesheet">
 	    <link href="{{url_for('static', filename='vendor/bootstrap-toggle-master/css/bootstrap-toggle.min.css')}}" rel="stylesheet">
 
-	    <!-- Triumf Icon for tab image -->
-		<link rel = "icon" href = "{{url_for('static', filename='img/TRIUMFLogo.png')}}">
+	    <!-- satelite Icon for tab image -->
+		<link rel = "icon" href = "{{url_for('static', filename='img/satelite.jpg')}}">
 		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css') }}">
 
 		<!-- Plotly + jQuery source code -->
@@ -19,22 +19,20 @@
 		<script type="text/javascript" src="{{ url_for('static',filename='vendor/jquery/jquery.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static',filename='static/js/bootstrap-slider.js') }}"></script>
 
-		<!-- javascript that collects RF data from local file -->
 
-		
 
 		<title>MAANS</title>
 
 
-
-
-		<h1 id="title">MAANS</h1>
-
+		<img src="{{url_for('static', filename='img/City_of_Toronto_Logo.png')}}" class=toronto_logo>
+		<p id="title" class="headline" style="font-family:Impact;font-size:102px;color:#295A84">Over the Years</p>
+		<p><br><br><br><br></p>
 
 		</head>
 
 
-		<body>
+
+		<body style="background-color:#333;">
 
 			<div class="container">
 
@@ -42,56 +40,77 @@
 
 					<!-- user entry field -->
 					<div id="target_address" class="fields">
-						<label> Address:</label>
+						<font color="white"
+						>Address:</font>
 						<input type="text" id="location" name= "location">
 					</div>
 
 
 					<!-- "current latlng" field -->
-					<b class="current_values">Your current position is {{abs_lat}}&#176; {{dir_lat}} and {{abs_lng}}&#176; {{dir_lng}}</b>
+					<b class="current_values">Your current position is <br><div style="color:#a43820;display:inline">{{abs_lat}}&#176; {{dir_lat}}</div> and <div style="color:#a43820;display:inline">{{abs_lng}}&#176; {{dir_lng}}</div>
 
-					<!-- submit button -->
-					<div>
-						<button class="btn btn-danger btn-lg" role="button" id="submit_button">Execute</button>
+					</b>
+
+          <!-- Insert startButton & map-->
+					<div class="startButton">
+						<button class="btn btn-danger btn-lg" role="button" id="submit_button">Start!</button>
 					</div>
+       </form>
 
+			<p><br><br><br><br></p>
 
-				</form>
 
 
 
 
 
 			<!-- slider -->
-			<div class="slidecontainer"><input type="range" min="0" max="3" value="0" class="slider" id="myRange"> </div>
+			<div class="slidecontainer"><input type="range" min="0" max="7" value="0" class="slider" id="myRange"></div>
+			<div id="slider_label"color="orange"> <-----------Time----------></div>
 
-			<!-- "array" of images -->
-			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img0.jpg')}}">
-			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img1.jpg')}}">
-			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img2.jpg')}}">
-			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img3.jpg')}}">
+			<!-- "array" of images and percentages-->
+			<div class="topright">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img0_1997.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img1_2000.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img2_2005.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img3_2007.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img4_2008.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img5_2009.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img6_2011.jpg')}}">
+			<img class="mySlides" src="{{url_for('static', filename='data/data_in/img7_2012.jpg')}}">
+	   	</div>
 
-	
-			<!-- reaponsible for eliminating and putting back pictures at the correct motions of the slider -->		
 			<script>
+			var i;
+			var x = document.getElementsByClassName("mySlides")
+			for (i = 1; i < x.length; i++) {
+			x[i].style.display = "none";
+			}
+			</script>
 
+			<!-- reaponsible for eliminating and putting back pictures at the correct motions of the slider -->
+			<script>
 			var slider = document.getElementById("myRange");
-
 			slider.oninput = function(){
 			  var i;
 			  var x = document.getElementsByClassName("mySlides");
-			  for (i = 0; i < x.length; i++) {
-			     x[i].style.display = "none";  
-			  }
-			  x[this.value].style.display = "block";  
-			}
 
+			  for (i = 0; i < x.length; i++) {
+			     x[i].style.display = "none";
+			  }
+			  x[this.value].style.display = "block";
+			}
 			</script>
 
+			<script>
+			var slider = document.getElementById("myRange");
+			var output = document.getElementById("demo");
+			output.innerHTML = slider.value;
 
-
-
-
+			slider.oninput = function() {
+			output.innerHTML = this.value;
+			}
+			</script>
 
 		     <!-- Bootstrap core JavaScript -->
 		    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
@@ -104,9 +123,8 @@
 		    <script src="{{url_for('static', filename='vendor/datatables/dataTables.bootstrap4.js')}}"></script>
 		    <script src="{{url_for('static', filename='vendor/bootstrap-toggle-master/js/bootstrap-toggle.min.js')}}"></script>
 
-	            
+
 
 	</body>
 
 </html>
-

@@ -11,7 +11,7 @@ body{
 
 	position: relative;
 
-	margin-top: 50px;
+	margin-top: 80px;
 
 	right:5%;
 }
@@ -22,19 +22,82 @@ body{
 
 	position: relative;
 
-	top: 20px;
-
-	right: 5%;
-}
-
-
-#submit_button{
-
-	position: relative;
-
 	top: 50px;
 
-	left: 3%;
+	right: 100px;
+
+	font-size: 20px;
+}
+
+
+.topright {
+position: absolute;
+top: 200px;
+right: 100px;}
+
+.startButton{
+position: absolute;
+top: 160px;
+left: 450px;
+}
+
+.headline{
+position: absolute;
+top: 8px;
+left: 630px;
+}
+
+.toronto_logo{
+position: absolute;
+top: 5px;
+left: 195px;
+}
+
+.slide_container{
+
+position: absolute;
+top: 100px;
+left: 200px;
+
 
 }
 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+.slider_label{
+	position: absolute;
+	left: 50px;
+	font-size: 30px;
+}
+
+.percentages{
+
+	position: relative;
+	right: 500px;
+	bottom: 600px;
+	font-size: 20px;
+}
